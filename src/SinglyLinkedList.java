@@ -1,4 +1,4 @@
-
+import java.util.List;
 
 public class SinglyLinkedList {
     private ListNode head;
@@ -90,15 +90,37 @@ public class SinglyLinkedList {
     }
 
     //delete last node of singly linked list
-    // public ListNode deleteLast() {
-    //     if (head==null) {
-    //         return null;
-    //     }
-    //     ListNode temp = head;
-    //     head= head.next;
-    //     temp.next = null;
-    //     return temp;
-    // }
+    public ListNode deleteLast() {
+       if (head ==null || head.next ==null) {
+        return head;
+       }
+       ListNode current = head;
+       ListNode previous = null;
+       while (current.next!=null) {
+        previous = current;
+        current = current.next;
+       }
+       previous.next = null;
+       return current;
+    }
+    //delete node of singly linked list from given position
+    public ListNode deleteGivenPosition(int position) {
+        if (position==1) {
+            return head = head.next;
+        }
+        else{
+            ListNode previousNode = head;
+            int count = 1;
+            while (count < position-1) {
+                previousNode=previousNode.next;
+                count++;
+            }
+            ListNode currentNode = previousNode.next;
+            previousNode.next= currentNode.next;
+            return currentNode;
+        }
+        
+     }
 
 
     public static void main(String[] args) {
@@ -119,6 +141,11 @@ public class SinglyLinkedList {
         sll.insertGivenPosition(2, 15);
         sll.display();
         sll.deleteFirst();
+        sll.display();
+        sll.insertStart(1);
+        sll.insertGivenPosition(2, 2);
+        sll.display();
+        sll.deleteGivenPosition(2);
         sll.display();
     }
 }
