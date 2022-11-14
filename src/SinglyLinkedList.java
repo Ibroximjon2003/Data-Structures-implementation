@@ -1,4 +1,4 @@
-
+import java.util.HexFormat;
 
 public class SinglyLinkedList {
     private ListNode head;
@@ -14,7 +14,7 @@ public class SinglyLinkedList {
     }
 
     //printing elements of singly linked list
-    public void display(){
+    public void display(ListNode head){
         ListNode current = head;
         while(current!=null){
             System.out.print(current.data+"--> ");
@@ -122,9 +122,14 @@ public class SinglyLinkedList {
         
      }
      // search an element in a Singly Linked List
-    public boolean isNodeExist(int searchingData) {
+    public boolean isNodeExist(ListNode head,int searchingData) {
+        if (head == null) {
+            return false;
+        } 
+
+
         ListNode currentNode = head;
-        while (currentNode.next != null) {
+        while (currentNode != null) {
             if (currentNode.data == searchingData) {
                 return true;
             }
@@ -134,31 +139,29 @@ public class SinglyLinkedList {
         return false;
     }
 
+    //reverse a singly linked list 
+    public ListNode reverseLinkedList(ListNode head) {
+        ListNode currentNode = head;
+        ListNode previousNode = null;
+        ListNode nextNode = null;
+        while (currentNode!=null) {
+            nextNode = currentNode.next;
+            currentNode.next = previousNode;
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        return previousNode;
+    }
+
 
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
-        // sll.head = new ListNode(10);
-        // ListNode second = new ListNode(1);
-        // ListNode third  = new ListNode(8);
-        // ListNode fourth = new ListNode(11);
-        // sll.head.next = second;
-        // second.next = third;
-        // third.next = fourth;
-        // sll.display();
-        // System.out.println(sll.length());
-        sll.insertStart(100);
-        sll.display();
-        sll.insertEnd(50);
-        sll.display();
-        sll.insertGivenPosition(2, 15);
-        sll.display();
-        sll.deleteFirst();
-        sll.display();
-        sll.insertStart(1);
-        sll.insertGivenPosition(2, 2);
-        sll.display();
-        // sll.deleteGivenPosition(2);
-        sll.display();
-        System.out.println(sll.isNodeExist(50));;
+        sll.head = new ListNode(10);
+        sll.insertStart(9);
+        sll.display(sll.head);
+        ListNode reverseListHead =  sll.reverseLinkedList(sll.head );
+        sll.display(reverseListHead);
+        
+     
     }
 }
