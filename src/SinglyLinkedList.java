@@ -1,4 +1,4 @@
-import java.util.List;
+
 
 public class SinglyLinkedList {
     private ListNode head;
@@ -104,9 +104,9 @@ public class SinglyLinkedList {
        return current;
     }
     //delete node of singly linked list from given position
-    public ListNode deleteGivenPosition(int position) {
+    public void deleteGivenPosition(int position) {
         if (position==1) {
-            return head = head.next;
+             head = head.next;
         }
         else{
             ListNode previousNode = head;
@@ -117,10 +117,22 @@ public class SinglyLinkedList {
             }
             ListNode currentNode = previousNode.next;
             previousNode.next= currentNode.next;
-            return currentNode;
         }
+    
         
      }
+     // search an element in a Singly Linked List
+    public boolean isNodeExist(int searchingData) {
+        ListNode currentNode = head;
+        while (currentNode.next != null) {
+            if (currentNode.data == searchingData) {
+                return true;
+            }
+            currentNode = currentNode.next;
+            
+        }
+        return false;
+    }
 
 
     public static void main(String[] args) {
@@ -145,7 +157,8 @@ public class SinglyLinkedList {
         sll.insertStart(1);
         sll.insertGivenPosition(2, 2);
         sll.display();
-        sll.deleteGivenPosition(2);
+        // sll.deleteGivenPosition(2);
         sll.display();
+        System.out.println(sll.isNodeExist(50));;
     }
 }
