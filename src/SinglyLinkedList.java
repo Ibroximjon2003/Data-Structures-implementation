@@ -1,4 +1,4 @@
-import org.w3c.dom.Node;
+
 
 public class SinglyLinkedList {
     private ListNode head;
@@ -90,15 +90,15 @@ public class SinglyLinkedList {
     }
 
     //delete last node of singly linked list
-    public ListNode deleteLast() {
-        if (head==null) {
-            return null;
-        }
-        ListNode temp = head;
-        head= head.next;
-        temp.next = null;
-        return temp;
-    }
+    // public ListNode deleteLast() {
+    //     if (head==null) {
+    //         return null;
+    //     }
+    //     ListNode temp = head;
+    //     head= head.next;
+    //     temp.next = null;
+    //     return temp;
+    // }
 
 
     public static void main(String[] args) {
