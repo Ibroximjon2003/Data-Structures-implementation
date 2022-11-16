@@ -1,4 +1,6 @@
-import java.util.HexFormat;
+import java.util.List;
+
+import org.w3c.dom.ls.LSInput;
 
 public class SinglyLinkedList {
     private ListNode head;
@@ -155,13 +157,19 @@ public class SinglyLinkedList {
 
 
     public static void main(String[] args) {
-        SinglyLinkedList sll = new SinglyLinkedList();
-        sll.head = new ListNode(10);
-        sll.insertStart(9);
-        sll.display(sll.head);
-        ListNode reverseListHead =  sll.reverseLinkedList(sll.head );
-        sll.display(reverseListHead);
+       
+        // sll.insertStart(9);
+        // sll.display(sll.head);
+        // ListNode reverseListHead =  sll.reverseLinkedList(sll.head );
+        // sll.display(reverseListHead);
+        SinglyLinkedList list1 = new SinglyLinkedList();
+        ListNode head = new ListNode(100);
+        ListNode node2 = new ListNode(99);
+        head.next = node2;
+    
         
+       
+        list1.display(head);
      
     }
 }
