@@ -169,7 +169,7 @@ public class SinglyLinkedList {
     
         
        
-        list1.display(head);
+        
      
     }
 }
